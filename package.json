@@ -1,6 +1,6 @@
 { "name":        "stratus-bundle"
 , "version":     "0.0.1"
-, "description": "stratus' bundle manager"
+, "description": "Stratus Editor's bundle manager"
 , "keywords":    ["stratus", "bundle"]
 , "homepage":    "https://github.com/stratuseditor/stratus-bundle/"
 , "bugs":
@@ -43,5 +43,4 @@
   }
 
 , "preferGlobal": true
-, "private":      true
 }
