@@ -47,7 +47,8 @@ DEFAULT_BUNDLES = [
 module.exports = bundle = (bundleName) ->
   try
     if _path.existsSync bundleName
-      return cache[bundleName] ||= new Bundle bundleName
+      b = new Bundle bundleName
+      return cache[b.name] ||= b
     else
       return cache[bundleName] ||= new Bundle "#{bundle.dir}/#{bundleName}"
   catch err
