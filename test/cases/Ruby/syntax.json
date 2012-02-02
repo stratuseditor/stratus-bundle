@@ -1,0 +1,160 @@
+{ "name":    "Ruby"
+, "url":     "https://github.com/stratuseditor/Ruby.sebundle"
+, "author":  "sentientwaffle"
+, "version": "0.0.1"
+
+, "require":   []
+, "fileTypes":
+  [ "\\.rb", "\\.ru"
+  , "Gemfile", "Rakefile"
+  , "Capfile", "Guardfile"
+  , "\\.gemspec", "\\.rake"
+  ]
+, "firstLine": "^#!/.*\\bruby\\b"
+
+, "preferences":
+  { "tab": "  "
+  , "indent":
+    [ "^\\s*(?:module|class|def|for|until|if|else|elsif|unless|while|begin|case)\\b"
+    , "\\b(?:do)\\b"
+    ]
+  , "outdent":
+    [ "\\s(?:end|else|elsif|ensure)"
+    ]
+  , "pairs": {"`": "`"}
+  }
+
+, "syntax":
+  { "$":
+    [ { "token": "comment"
+      , "match": "[#].*(?=\n)"
+      }
+      
+    , "Block comment"
+    , { "token": "comment"
+      , "begin": "\n=begin"
+      , "end":   "\n=end"
+      }
+    
+    , "Symbols"
+    , { "token": "constant.builtin"
+      , "match": "[:](?:[a-zA-Z_]+|\"[^\"]*\"|'[^']*')"
+      }
+    
+    , "Double quoted string"
+    , { "token":   "string.literal"
+      , "begin":   "\""
+      , "end":     "\""
+      , "include": [{"include": "#interpol"}]
+      }
+    , "Tick mark quoted string"
+    , { "token":   "string.literal"
+      , "begin":   "`"
+      , "end":     "`"
+      , "include": [{"include": "#interpol"}]
+      }
+    , "Single quoted string"
+    , { "token": "string.literal"
+      , "begin": "'"
+      , "end":   "'"
+      }
+    
+    
+    , "Funny strings"
+    , { "token":   "string.literal"
+      , "begin":   "%[qQwrx]?[\\(]"
+      , "end":     "[\\)]"
+      , "include": [{"include": "#interpol"}]
+      }
+    , { "token":   "string.literal"
+      , "begin":   "%[qQwrx]?[\\[]"
+      , "end":     "[\\]]"
+      , "include": [{"include": "#interpol"}]
+      }
+    , { "token":   "string.literal"
+      , "begin":   "%[qQwrx]?[{]"
+      , "end":     "[}]"
+      , "include": [{"include": "#interpol"}]
+      }
+    , { "token":   "string.literal"
+      , "begin":   "%[qQwrx]?[<]"
+      , "end":     "[>]"
+      , "include": [{"include": "#interpol"}]
+      }
+    
+    , "Regular expressions"
+    , { "token": "string.regexp"
+      , "match": "/[^\\s][^/]*/[imxo]*"
+      }
+    
+    , "Class"
+    , { "token": "keyword"
+      , "begin": "\\sclass\\s"
+      , "end":   "\n"
+      , "include":
+        [ { "token": "entity.class"
+          , "match": "\\w+"
+          }
+        , { "token": "keyword.operator"
+          , "match": "[<]"
+          }
+        ]
+      }
+    
+    , "Function definition"
+    , { "token": "keyword"
+      , "begin": "def "
+      , "end":   "(?=\\()|\n|[ ]"
+      , "include":
+        [ { "token": "entity.function"
+          , "match": "[\\w]+[\\?!]?"
+          }
+        ]
+      }
+    
+    , { "token":    "entity.builtin"
+      , "keywords": "new|require|require_relative"
+      }
+    
+    , "Keywords"
+    , { "token":    "keyword"
+      , "keywords": "BEGIN|END|__ENCODING__|__END__|__FILE__|__LINE__|alias|and|begin|break|case|class|def|defined\\?|do|else|elsif|end|ensure|for|if|in|module|next|not|or|redo|rescue|retry|return|super|then|undef|unless|until|when|while|yield|private|public|protected"
+      }
+    
+    
+    , { "token": "keyword.operator"
+      , "match": "[:][:]|\\.\\.|/|!|%|&|\\*|\\-|\\+|\\+|~|=|<|>|\\|\\||\\?\\:|\\+|\\-|\\^"
+      }
+    
+    , "Constants"
+    , { "token":    "constant"
+      , "keywords": "[A-Z][\\w]+"
+      }
+      
+    , { "token": "variable.instance"
+      , "match": "(?:@?@[\\w]+|self)"
+      }
+    
+    , "Numbers and ?[Char]"
+    , { "token":    "constant.numeric"
+      , "keywords": "-?[0-9]+(?:\\.(?!\\.)[0-9]*)?(?:e-?[0-9]*)?"
+      }
+    , { "token": "constant.numeric"
+      , "match": "\\?[a-zA-Z_]"
+      }
+    
+    , { "token":    "constant.builtin"
+      , "keywords": "true|false|nil"
+      }
+    
+    ]
+  
+  , "#interpol":
+    { "token":   "string.interpol"
+    , "begin":   "#{"
+    , "end":     "}"
+    , "include": "$self"
+    }
+  
+  }
+}

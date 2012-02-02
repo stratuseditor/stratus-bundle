@@ -1,0 +1,8 @@
+{ "name":    "Ruby.Rails"
+, "url":     "https://github.com/stratuseditor/Ruby.Rails.sebundle"
+, "author":  "sentientwaffle"
+, "version": "0.0.1"
+
+, "extends":   "Ruby"
+
+}

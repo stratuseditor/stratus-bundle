@@ -57,6 +57,7 @@ module.exports = bundle = (bundleName) ->
 # Internal: The path to the directory which contains the installed bundles.
 bundle.dir = _path.resolve process.env.HOME, ".stratus", "bundles"
 
+
 # Public: Get a list of the names of installed bundles.
 # 
 # callback - Receives `(err, bundleNames)`.
