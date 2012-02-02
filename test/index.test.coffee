@@ -47,14 +47,14 @@ describe "bundle", ->
   describe ".identify", ->
     describe "a ruby file", ->
       it "is identified as 'Ruby'", (done) ->
-        bundle.identify "path/to/file.rb", (err, name) ->
+        bundle.identify "#{__dirname}/file.rb", (err, name) ->
           should.not.exist err
           name.should.eql "Ruby"
           done()
     
     describe "an unidentifiable file", ->
       it "passes an error", (done) ->
-        bundle.identify "path/to/file", (err, name) ->
+        bundle.identify "#{__dirname}/file", (err, name) ->
           err.should.be.an.instanceof Error
           should.not.exist name
           done()
