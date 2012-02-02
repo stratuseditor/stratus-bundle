@@ -28,7 +28,7 @@
   }
 
 , "dependencies":
-  { "commander":  "0.2.x"
+  { "commander":  "0.x.x"
   , "underscore": "1.2.x"
   }
 
