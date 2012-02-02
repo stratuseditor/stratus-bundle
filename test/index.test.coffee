@@ -5,6 +5,8 @@ ruby       = bundle "#{__dirname}/cases/Ruby"
 rails      = bundle "#{__dirname}/cases/Ruby.Rails"
 railsModel = bundle "#{__dirname}/cases/Ruby.Rails.Model"
 
+bundle.dir = "#{__dirname}/cases"
+
 describe "bundle", ->
   describe "()", ->
     describe "normal", ->
