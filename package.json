@@ -1,0 +1,47 @@
+{ "name":        "stratus-bundle"
+, "version":     "0.0.1"
+, "description": "stratus' bundle manager"
+, "keywords":    ["stratus", "bundle"]
+, "homepage":    "https://github.com/stratuseditor/stratus-bundle/"
+, "bugs":
+  { "url":  "https://github.com/stratuseditor/stratus-bundle/issues"
+  }
+, "author":
+  { "name": "sentientwaffle"
+  , "url":  "http://sentientwaffle.github.com/"
+  }
+
+, "main": "./index"
+, "bin":
+  { "stratus-bundle": "./bin/stratus-bundle.js"
+  }
+
+, "scripts":
+  { "prepublish":  "coffee -c index.coffee"
+  , "postpublish": "rm index.js"
+  , "test":        "mocha"
+  }
+
+, "repository":
+  { "type": "git"
+  , "url":  "https://github.com/stratuseditor/stratus-bundle.git"
+  }
+
+, "dependencies":
+  { "commander":  "0.2.x"
+  , "underscore": "1.2.x"
+  }
+
+, "devDependencies":
+  { "mocha":         "0.x.x"
+  , "should":        "0.4.x"
+  , "coffee-script": "1.x.x"
+  }
+
+, "engines":
+  { "node": ">=0.4.1"
+  }
+
+, "preferGlobal": true
+, "private":      true
+}
