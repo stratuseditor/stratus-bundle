@@ -1,4 +1,7 @@
 # [Stratus:Bundle][bundles]
+
+[![Build Status](https://secure.travis-ci.org/stratuseditor/stratus-bundle.png)](http://travis-ci.org/stratuseditor/stratus-bundle)
+
 The bundle manager for
 [Stratus Editor][stratus]
 and the Stratus
