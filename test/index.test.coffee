@@ -1,11 +1,11 @@
 should = require 'should'
 bundle = require '../'
 
-ruby       = bundle "#{__dirname}/cases/Ruby"
-rails      = bundle "#{__dirname}/cases/Ruby.Rails"
-railsModel = bundle "#{__dirname}/cases/Ruby.Rails.Model"
+bundle.testDir()
 
-bundle.dir = "#{__dirname}/cases"
+ruby       = bundle "Ruby"
+rails      = bundle "Ruby.Rails"
+railsModel = bundle "Ruby.Rails.Model"
 
 describe "bundle", ->
   describe "()", ->

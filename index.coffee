@@ -58,6 +58,10 @@ module.exports = bundle = (bundleName) ->
 # Internal: The path to the directory which contains the installed bundles.
 bundle.dir = _path.resolve process.env.HOME, ".stratus", "bundles"
 
+# Public: Set the directory to the test case directory.
+bundle.testDir = ->
+  bundle.dir = "#{__dirname}/test/cases"
+
 
 # Public: Get a list of the names of installed bundles.
 # 
