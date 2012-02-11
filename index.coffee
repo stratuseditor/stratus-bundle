@@ -55,8 +55,12 @@ module.exports = bundle = (bundleName) ->
     return null
 
 
+STRATUS    = _path.resolve process.env.HOME, ".stratus"
 # Internal: The path to the directory which contains the installed bundles.
-bundle.dir = _path.resolve process.env.HOME, ".stratus", "bundles"
+bundle.dir = _path.resolve STRATUS, "bundles"
+
+fs.mkdirSync STRATUS, 0755    unless _path.existsSync STRATUS
+fs.mkdirSync bundle.dir, 0755 unless _path.existsSync bundle.dir
 
 # Public: Set the directory to the test case directory.
 bundle.testDir = ->
@@ -125,7 +129,6 @@ bundle.setup = (callback) ->
   i = 0
   next = ->
     install DEFAULT_BUNDLES[i], (err) ->
-      return callback err if err
       console.log "Installed #{DEFAULT_BUNDLES[i]}"
       if DEFAULT_BUNDLES[++i]
         next()

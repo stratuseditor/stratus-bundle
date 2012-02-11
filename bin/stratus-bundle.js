@@ -140,6 +140,7 @@ commander
       } else {
         console.log("Success");
       }
+      process.exit();
     });
   });
 
