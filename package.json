@@ -1,5 +1,5 @@
 { "name":        "stratus-bundle"
-, "version":     "0.0.1"
+, "version":     "0.0.2"
 , "description": "Stratus Editor's bundle manager"
 , "keywords":    ["stratus", "bundle"]
 , "homepage":    "https://github.com/stratuseditor/stratus-bundle/"
